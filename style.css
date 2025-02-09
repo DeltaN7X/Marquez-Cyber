@@ -53,7 +53,8 @@ footer {
     padding: 10px;
     background-color: #333;
     color: #fff;
-    position: fixed;
+    position: relative; /* Changed from fixed to relative */
     width: 100%;
     bottom: 0;
+    margin-top: 20px;  /* Adds spacing between content and footer */
 }
