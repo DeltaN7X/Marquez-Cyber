@@ -33,3 +33,5 @@ canvas {
     max-width: 800px;
     margin: 50px auto;
 }
+resizeCanvas();  // Ensure the canvas is sized correctly
+draw();          // Force an immediate draw after resizing
