@@ -9,18 +9,51 @@
     <style>
         body {
             color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
         .project, header, footer {
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 10px;
         }
-        a {
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li a {
             color: #0F0;
+            text-decoration: none;
+            font-weight: bold;
         }
-        a:hover {
+        nav ul li a:hover {
             text-decoration: underline;
+        }
+        main {
+            padding: 10px;
+        }
+        @media (max-width: 600px) {
+            header, .project, footer {
+                padding: 15px;
+                margin: 5px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            h1, h2 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
