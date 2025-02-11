@@ -49,10 +49,10 @@
                 drops[index] = 0;  // Reset drop to top randomly
             }
 
-            drops[index]++;
+            drops[index] += 0.5;  // Slower falling speed
         });
 
-        setTimeout(() => requestAnimationFrame(draw), 100);  // Slow down the scroll speed
+        requestAnimationFrame(draw);  // Keep the animation smooth
     }
 
     console.log("Starting matrix animation");
