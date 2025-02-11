@@ -1,11 +1,12 @@
 (function() {
     console.log("Matrix script loaded");
 
-    const matrixCanvas = document.querySelector('.matrix');
-    if (matrixCanvas) {
-        console.log("Canvas found and ready");
-    } else {
-        console.error("Canvas not found!");
+const matrixCanvas = document.querySelector('.matrix');
+if (matrixCanvas) {
+    console.log("Canvas found and ready");
+} else {
+    console
+
     }
 
     const ctx = matrixCanvas.getContext('2d');
