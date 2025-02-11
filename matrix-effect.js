@@ -31,16 +31,33 @@
     const letters = Array(256).join(1).split('');
 
 function draw() {
-    ctx.fillStyle = 'yellow';  // Fill canvas with yellow to make it obvious
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';  // Slightly transparent to create trailing effect
     ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-    ctx.fillStyle = 'red';  // Bright red text
-    ctx.font = '50pt monospace';  // Larger font size for visibility
+    ctx.fillStyle = '#0F0';  // Bright green color
+    ctx.font = '15pt monospace';
 
-    const text = "VISIBLE?";  // Clear message for testing
-    ctx.fillText(text, 100, 100);  // Draw at a fixed position
+    const columns = Math.floor(matrixCanvas.width / 15);  // Calculate number of columns
+    if (!window.drops) {
+        window.drops = Array(columns).fill(1);  // Initialize drops array if not already
+    }
+
+    window.drops.forEach((y, index) => {
+        const text = String.fromCharCode(0x30A0 + Math.random() * 96);  // Random Japanese Katakana characters
+        const x = index * 15;
+
+        ctx.fillText(text, x, y * 15);
+
+        // Reset drops to top randomly after falling off screen
+        if (y * 15 > matrixCanvas.height && Math.random() > 0.975) {
+            window.drops[index] = 0;
+        }
+
+        window.drops[index]++;
+    });
 
     requestAnimationFrame(draw);
 }
+
 
 
 
