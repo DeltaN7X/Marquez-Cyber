@@ -31,16 +31,17 @@
     const letters = Array(256).join(1).split('');
 
 function draw() {
-    ctx.fillStyle = 'black';  // Fill with solid black to confirm canvas is drawing
+    ctx.fillStyle = 'yellow';  // Fill canvas with yellow to make it obvious
     ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-    ctx.fillStyle = '#0F0';  // Bright green text
-    ctx.font = '15pt monospace';
+    ctx.fillStyle = 'red';  // Bright red text
+    ctx.font = '50pt monospace';  // Larger font size for visibility
 
-    const text = "TESTING";  // Replace with static text for debugging
-    ctx.fillText(text, 50, 50);  // Draw at a fixed position to see if it appears
+    const text = "VISIBLE?";  // Clear message for testing
+    ctx.fillText(text, 100, 100);  // Draw at a fixed position
 
     requestAnimationFrame(draw);
 }
+
 
 
     console.log("Starting matrix animation");
