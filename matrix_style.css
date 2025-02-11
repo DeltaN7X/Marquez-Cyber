@@ -7,16 +7,17 @@ body, html {
 }
 
 .matrix {
-    border: 5px solid red;  /* Add a red border to visually check the canvas position */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;             /* Bring the canvas slightly forward */
-    pointer-events: none;   /* Ensure canvas doesn't block interactions */
-    background-color: black;  /* Solid black background */
+    z-index: 0;  /* Keep canvas behind content */
+    pointer-events: none;
+    background-color: black;
+    /* border: 5px solid red; */  /* Remove or comment out this line */
 }
+
 
 .content {
     position: relative;
