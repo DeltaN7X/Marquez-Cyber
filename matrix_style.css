@@ -15,10 +15,11 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -9999;           /* Keep the canvas behind content */
+    z-index: 9999;  /* Bring canvas to the front again for testing */
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.9);  /* Darken the background slightly */
+    background-color: black;
 }
+
 
 .content {
     position: relative;
