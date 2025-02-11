@@ -5,7 +5,26 @@ const matrixCanvas = document.querySelector('.matrix');
 if (matrixCanvas) {
     console.log("Canvas found and ready");
 } else {
-    console
+    console.error("Canvas not found!");
+}
+
+const ctx = matrixCanvas.getContext('2d');
+
+function resizeCanvas() {
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+    console.log("Canvas resized to", matrixCanvas.width, matrixCanvas.height);
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// TEST: Fill the entire canvas with solid green to verify it's rendering
+ctx.fillStyle = 'green';
+ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+console.log("Canvas filled with green");
+
 
     }
 
