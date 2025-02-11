@@ -21,7 +21,27 @@
     <main>
         <section>
             <h2>SOHO Network Design</h2>
-            <p>Designed and configured switches, routers, VLANs, NGFW, IDS/IPS, VPN, and a DNS sinkhole to optimize network performance and security.</p>
+            <p>In this project, I meticulously designed and deployed a comprehensive Small Office/Home Office (SOHO) network, with a dual focus on optimizing performance and enforcing robust security protocols. The project commenced with a thorough assessment of network requirements, involving detailed inventorying of all devices, precise bandwidth allocation analysis, and an in-depth evaluation of necessary security measures to safeguard data integrity and confidentiality.
+
+Network Hardware Configuration:
+
+Routers and Switches: I utilized Ubiquiti routers and Layer 2/3 managed switches from the UniFi product line to provide both scalability and high performance suitable for a SOHO environment. Dynamic routing protocols like OSPF were configured using pfSense to optimize path selection and ensure efficient data flow. VLANs were established to segment network traffic based on device type and function, enhancing both performance and security by isolating sensitive data streams.
+
+Wireless Access Points (WAPs): Dual-band UniFi WAPs supporting both 2.4 GHz and 5 GHz frequencies were deployed to cater to varying device capabilities and bandwidth requirements. These were configured with WPA3 encryption for enhanced wireless security, and SSID segmentation was employed to create separate networks for guests, IoT devices, and internal systems, thereby minimizing potential attack vectors.
+
+Security Implementations:
+
+Next-Generation Firewall (NGFW): I implemented a pfSense-based NGFW featuring deep packet inspection (DPI), application-layer filtering, and real-time intrusion prevention capabilities. Granular Access Control Lists (ACLs) were carefully defined to manage network permissions and restrict unauthorized access, while security policies were tailored to address specific SOHO risks.
+
+Intrusion Detection/Prevention Systems (IDS/IPS): Integrated Snort IDS/IPS within the pfSense environment with customized rule sets to detect and mitigate a variety of network threats, including port scanning, SQL injection attempts, and brute-force login attacks. Regular updates to the rule sets ensured the system remained resilient against emerging threats.
+
+VPN Configuration: Established secure site-to-site and remote access VPN tunnels using OpenVPN, fortified with AES-256 encryption. This ensured that data in transit remained confidential and unaltered, providing secure access to remote users and connected locations.
+
+DNS Sinkhole: Configured pfBlockerNG on pfSense to act as a DNS sinkhole, intercepting and redirecting traffic from known malicious domains to a controlled environment. This proactive measure effectively mitigated phishing attempts and malware infections by preventing compromised devices from communicating with command-and-control servers.
+
+Monitoring and Maintenance:
+
+Network monitoring was conducted using Wireshark for deep packet-level analysis and Zenmap for network scanning and vulnerability detection. These tools enabled detailed traffic inspection and network mapping to identify potential security risks and optimize network performance. A structured schedule for regular firmware updates and security patches was implemented to maintain the integrity, stability, and security of the network infrastructure.</p>
         </section>
         <section>
             <h2>Azure Sentinel SIEM Implementation</h2>
