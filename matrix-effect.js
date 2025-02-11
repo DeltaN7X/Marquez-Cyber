@@ -40,7 +40,9 @@
         ctx.font = `${fontSize}px monospace`;
 
         drops.forEach((y, index) => {
-            const text = Math.random() > 0.5 ? '1' : '0';  // Explicitly use 1 and 0
+            // Mix 1s, 0s, and Katakana characters
+            const textPool = ['1', '0', String.fromCharCode(0x30A0 + Math.random() * 96)];
+            const text = textPool[Math.floor(Math.random() * textPool.length)];
             const x = index * fontSize;
 
             ctx.fillText(text, x, y * fontSize);
@@ -49,13 +51,14 @@
                 drops[index] = 0;  // Reset drop to top randomly
             }
 
-            drops[index] += 0.25;  // Significantly slower falling speed
+            drops[index] += 0.5;  // Moderate falling speed
         });
 
-        setTimeout(() => requestAnimationFrame(draw), 100);  // Slow down frame rate
+        setTimeout(() => requestAnimationFrame(draw), 75);  // Slightly faster frame rate
     }
 
     console.log("Starting matrix animation");
     draw();  // Start the animation
 
 })();
+
