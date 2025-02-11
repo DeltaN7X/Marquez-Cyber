@@ -2,10 +2,10 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    overflow-y: auto;  /* Allow vertical scrolling */
 }
 
 .matrix {
@@ -16,7 +16,7 @@ body, html {
     height: 100%;
     z-index: -1;
     background: black;
-    overflow: hidden;
+    pointer-events: none;  /* Allow clicks and scrolling through the canvas */
 }
 
 canvas {
