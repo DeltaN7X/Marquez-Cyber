@@ -31,15 +31,32 @@
     const letters = Array(256).join(1).split('');
 
 function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';  // Slightly transparent to create trailing effect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';  // Slight transparency for trailing effect
     ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
     ctx.fillStyle = '#0F0';  // Bright green color
-    ctx.font = '15pt monospace';
+    ctx.font = '20pt monospace';
 
-    const columns = Math.floor(matrixCanvas.width / 15);  // Calculate number of columns
+    const columns = Math.floor(matrixCanvas.width / 20);
     if (!window.drops) {
-        window.drops = Array(columns).fill(1);  // Initialize drops array if not already
+        window.drops = Array(columns).fill(1);
     }
+
+    window.drops.forEach((y, index) => {
+        const text = "01"[Math.floor(Math.random() * 2)];  // Use simple 0 and 1 characters
+        const x = index * 20;
+
+        ctx.fillText(text, x, y * 20);
+
+        if (y * 20 > matrixCanvas.height && Math.random() > 0.975) {
+            window.drops[index] = 0;
+        }
+
+        window.drops[index]++;
+    });
+
+    requestAnimationFrame(draw);
+}
+
 
     window.drops.forEach((y, index) => {
         const text = String.fromCharCode(0x30A0 + Math.random() * 96);  // Random Japanese Katakana characters
