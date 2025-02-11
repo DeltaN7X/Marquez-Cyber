@@ -21,27 +21,27 @@
     <main>
         <section class="project">
     <h2>SOHO Network Design</h2>
-    <p><strong>Objective:</strong> To design and deploy a secure, efficient Small Office/Home Office (SOHO) network with a focus on performance optimization and robust security protocols.</p>
+    <p><strong>Objective:</strong> In this project, I meticulously designed and deployed a comprehensive Small Office/Home Office (SOHO) network, with a dual focus on optimizing performance and enforcing robust security protocols. The project commenced with a thorough assessment of network requirements, involving detailed inventorying of all devices, precise bandwidth allocation analysis, and an in-depth evaluation of necessary security measures to safeguard data integrity and confidentiality.</p>
 
     <h3>Network Hardware Configuration:</h3>
     <ul>
-        <li><strong>Routers and Switches:</strong> Utilized Ubiquiti routers and Layer 2/3 managed switches for optimal scalability and performance.</li>
-        <li><strong>VLANs:</strong> Established to segment network traffic and enhance both performance and security.</li>
-        <li><strong>Wireless Access Points (WAPs):</strong> Deployed dual-band WAPs supporting 2.4 GHz and 5 GHz for flexible connectivity.</li>
+        <li><strong>Routers and Switches:</strong> Utilized Ubiquiti routers and Layer 2/3 managed switches from the UniFi product line for scalability and high performance. Configured dynamic routing protocols like OSPF using pfSense to optimize path selection and ensure efficient data flow.</li>
+        <li><strong>VLANs:</strong> Established to segment network traffic based on device type and function, enhancing both performance and security by isolating sensitive data streams.</li>
+        <li><strong>Wireless Access Points (WAPs):</strong> Deployed dual-band UniFi WAPs supporting both 2.4 GHz and 5 GHz frequencies, configured with WPA3 encryption for enhanced wireless security. SSID segmentation was employed to create separate networks for guests, IoT devices, and internal systems, minimizing potential attack vectors.</li>
     </ul>
 
     <h3>Security Implementations:</h3>
     <ul>
-        <li><strong>Next-Generation Firewall (NGFW):</strong> Implemented with deep packet inspection, application-layer filtering, and real-time threat prevention.</li>
-        <li><strong>Intrusion Detection/Prevention Systems (IDS/IPS):</strong> Tailored to detect and mitigate specific SOHO network threats.</li>
-        <li><strong>VPN Configuration:</strong> Established secure remote access using OpenVPN fortified with AES-256 encryption.</li>
-        <li><strong>DNS Sinkhole:</strong> Configured pfBlockerNG on pfSense to block malicious domains and prevent phishing attacks.</li>
+        <li><strong>Next-Generation Firewall (NGFW):</strong> Implemented a pfSense-based NGFW featuring deep packet inspection (DPI), application-layer filtering, and real-time intrusion prevention capabilities. Defined granular Access Control Lists (ACLs) to manage network permissions and restrict unauthorized access.</li>
+        <li><strong>Intrusion Detection/Prevention Systems (IDS/IPS):</strong> Integrated Snort IDS/IPS within the pfSense environment with customized rule sets to detect and mitigate a variety of network threats, including port scanning, SQL injection attempts, and brute-force login attacks.</li>
+        <li><strong>VPN Configuration:</strong> Established secure site-to-site and remote access VPN tunnels using OpenVPN, fortified with AES-256 encryption to ensure data confidentiality.</li>
+        <li><strong>DNS Sinkhole:</strong> Configured pfBlockerNG on pfSense to act as a DNS sinkhole, intercepting and redirecting traffic from known malicious domains to a controlled environment, effectively mitigating phishing attempts and malware infections.</li>
     </ul>
 
     <h3>Monitoring and Maintenance:</h3>
     <ul>
-        <li><strong>Network Monitoring:</strong> Conducted using Wireshark and Zennmap for vulnerability detection and network mapping.</li>
-        <li><strong>Regular Audits:</strong> Scheduled firmware updates and security patches to maintain network integrity and performance.</li>
+        <li><strong>Network Monitoring:</strong> Conducted using Wireshark for deep packet-level analysis and Zenmap for network scanning and vulnerability detection. These tools enabled detailed traffic inspection and network mapping to identify potential security risks and optimize network performance.</li>
+        <li><strong>Regular Audits:</strong> Implemented a structured schedule for regular firmware updates and security patches to maintain the integrity, stability, and security of the network infrastructure.</li>
     </ul>
 
     <h3>Results:</h3>
@@ -50,57 +50,66 @@
 
 <section class="project">
     <h2>Azure Sentinel SIEM Implementation</h2>
-    <p><strong>Objective:</strong> Deploy Microsoft Azure Sentinel to enhance security monitoring and proactive threat detection.</p>
+    <p><strong>Objective:</strong> This project focused on deploying Microsoft Azure Sentinel, a scalable, cloud-native Security Information and Event Management (SIEM) system, to enhance the organization’s cybersecurity posture through advanced threat detection and automated incident response.</p>
 
     <h3>Data Collection and Ingestion:</h3>
     <ul>
-        <li><strong>Event Viewer Metadata Extraction:</strong> Developed PowerShell scripts to extract critical metadata from Windows Event Viewer logs.</li>
-        <li><strong>Log Analytics Workspace Configuration:</strong> Established centralized monitoring using Azure Log Analytics.</li>
+        <li><strong>Event Viewer Metadata Extraction:</strong> Developed robust PowerShell automation scripts to extract critical metadata from Windows Event Viewer logs, parsing key fields such as event IDs, timestamps, user activity logs, and error codes.</li>
+        <li><strong>Log Analytics Workspace Configuration:</strong> Established a centralized Log Analytics Workspace in Azure with data connectors configured for seamless integration of logs from multiple sources, including Microsoft 365, Azure Active Directory, and hybrid on-premises servers.</li>
     </ul>
 
     <h3>Security Monitoring and Analysis:</h3>
     <ul>
-        <li><strong>Custom KQL Queries:</strong> Authored advanced queries for in-depth analysis of log data to detect anomalies and threats.</li>
-        <li><strong>Dynamic Workbooks and Dashboards:</strong> Designed real-time dashboards to display threat detection rates, incident frequencies, and system health indicators.</li>
+        <li><strong>Custom KQL Queries:</strong> Authored advanced Kusto Query Language (KQL) queries to perform in-depth analysis of log data, identifying security anomalies such as multiple failed login attempts, privilege escalation activities, and unusual network behaviors.</li>
+        <li><strong>Dynamic Workbooks and Dashboards:</strong> Designed dynamic workbooks within Azure Sentinel, incorporating real-time visual dashboards displaying key security metrics like threat detection rates, incident frequencies, response times, and system health indicators.</li>
     </ul>
 
-    <h3>Response Optimization:</h3>
+    <h3>Incident Response Optimization:</h3>
     <ul>
-        <li><strong>Playbook Automation:</strong> Developed automated incident response playbooks using Azure Logic Apps.</li>
+        <li><strong>Playbook Automation:</strong> Developed and implemented automated incident response playbooks using Azure Logic Apps, designed to execute predefined actions in response to specific security incidents, such as isolating compromised endpoints, sending real-time alerts, and initiating forensic data collection.</li>
     </ul>
 
     <h3>Performance Impact:</h3>
-    <p>The comprehensive implementation resulted in a 25% reduction in incident response time, significantly enhancing threat detection efficiency and minimizing data breaches.</p>
+    <p>The comprehensive implementation of these measures resulted in a 25% reduction in incident response time, significantly enhancing the efficiency of threat detection and mitigation processes. This improvement translated into reduced downtime, minimized data breaches, and strengthened overall organizational security.</p>
 </section>
 
 <section class="project">
     <h2>Active Directory Administration</h2>
-    <p><strong>Objective:</strong> Comprehensive administration and optimization of Active Directory (AD) services to streamline user management and enhance security frameworks.</p>
+    <p><strong>Objective:</strong> This project entailed the comprehensive administration and optimization of Active Directory (AD) services to streamline user management workflows, enhance access control mechanisms, and reinforce organizational security frameworks.</p>
 
     <h3>User Account Management:</h3>
     <ul>
-        <li><strong>Automation with PowerShell:</strong> Developed scripts to automate the entire user lifecycle, including account creation, password policies, and deprovisioning.</li>
+        <li><strong>Automation with PowerShell:</strong> Developed extensive PowerShell scripts to automate the entire user lifecycle management process, including account creation, group membership assignments, password policy enforcement, and deprovisioning.</li>
     </ul>
 
     <h3>Group Policy Management:</h3>
     <ul>
-        <li><strong>GPO Configuration:</strong> Configured and enforced Group Policy Objects (GPOs) to standardize security settings across the organization.</li>
+        <li><strong>GPO Configuration:</strong> Configured and enforced Group Policy Objects (GPOs) to standardize security settings across the domain, including password complexity requirements, account lockout thresholds, software installation restrictions, and desktop environment configurations.</li>
     </ul>
 
     <h3>Access Control and Permissions:</h3>
     <ul>
-        <li><strong>NTFS Permissions:</strong> Implemented role-based access controls (RBAC) to simplify permission management and enhance scalability.</li>
+        <li><strong>NTFS Permissions Management:</strong> Administered NTFS file system permissions to control access to critical data, rigorously applying the principle of least privilege. Implemented role-based access controls (RBAC) to simplify permission management and ensure scalability.</li>
     </ul>
 
-    <h3>Monitoring and Troubleshooting:</h3>
+    <h3>Auditing and Monitoring:</h3>
     <ul>
-        <li><strong>Audit Trails:</strong> Enabled advanced auditing features to monitor critical AD changes and support forensic investigations.</li>
-        <li><strong>Secure Remote Access:</strong> Configured Remote Access Services (RAS) with NAT and PAT for secure connectivity.</li>
+        <li><strong>Audit Trails:</strong> Enabled advanced auditing features in AD to monitor critical changes to user accounts, group memberships, and security settings. Maintained comprehensive audit trails to support forensic investigations, compliance audits, and security incident responses.</li>
+        <li><strong>Secure Remote Access:</strong> Configured Remote Access Services (RAS) with Network Address Translation (NAT) and Port Address Translation (PAT) to manage IP address allocation and ensure secure data transmission.</li>
+        <li><strong>Multi-Factor Authentication (MFA):</strong> Integrated MFA mechanisms combining traditional credentials with biometric verification and one-time passcodes (OTPs), significantly mitigating the risk of unauthorized access.</li>
+    </ul>
+
+    <h3>Maintenance and Troubleshooting:</h3>
+    <ul>
+        <li>Conducted regular reviews of Active Directory event logs to promptly identify and rectify potential issues. Performed periodic security audits to ensure adherence to best practices and compliance with organizational policies.</li>
+        <li>Provided technical support for complex AD-related issues, ensuring minimal disruption to business operations.</li>
+        <li>Implemented proactive monitoring solutions and conducted capacity planning to anticipate future growth and resource requirements.</li>
     </ul>
 
     <h3>Results:</h3>
-    <p>Improved operational efficiency by automating user management tasks and enhancing file server security, supporting secure remote access for staff and minimizing disruptions.</p>
+    <p>Improved operational efficiency by automating user management tasks, enhancing file server security, and supporting secure remote access for staff, resulting in minimized disruptions and strengthened overall security posture.</p>
 </section>
+
 
     </main>
     <footer>
