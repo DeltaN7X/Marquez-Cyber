@@ -45,11 +45,53 @@ Network monitoring was conducted using Wireshark for deep packet-level analysis 
         </section>
         <section>
             <h2>Azure Sentinel SIEM Implementation</h2>
-            <p>Developed custom scripts to extract metadata from Event Viewer, configured Log Analytics Workspace, and built dynamic workbooks to visualize global attack data, reducing incident response time by 25%.</p>
+            <p>This project was centered on the deployment of Microsoft Azure Sentinel, a scalable, cloud-native Security Information and Event Management (SIEM) system, aimed at enhancing the organization’s cybersecurity posture through advanced threat detection and automated incident response.
+
+Data Collection and Ingestion:
+
+Event Viewer Metadata Extraction: I developed robust PowerShell automation scripts to extract critical metadata from Windows Event Viewer logs. These scripts parsed key fields such as event IDs, timestamps, user activity logs, and error codes, ensuring comprehensive data collection. The parsed data was then ingested into Azure Sentinel through Log Analytics agents, enabling centralized monitoring.
+
+Log Analytics Workspace Configuration: A centralized Log Analytics Workspace was established in Azure, with data connectors configured to facilitate seamless integration of logs from multiple sources, including Microsoft 365, Azure Active Directory, and hybrid on-premises servers. This ensured a unified view of security events across the organization’s IT ecosystem.
+
+Security Monitoring and Analysis:
+
+Custom KQL Queries: I authored advanced Kusto Query Language (KQL) queries to perform in-depth analysis of log data, enabling the identification of security anomalies such as multiple failed login attempts, privilege escalation activities, and unusual network behaviors. These queries were optimized for performance and accuracy, ensuring timely threat detection.
+
+Dynamic Workbooks and Dashboards: Designed dynamic workbooks within Azure Sentinel, incorporating real-time visual dashboards that displayed key security metrics such as threat detection rates, incident frequencies, response times, and system health indicators. These dashboards provided actionable insights, facilitating proactive threat management.
+
+Incident Response Optimization:
+
+Playbook Automation: Developed and implemented automated incident response playbooks using Azure Logic Apps. These playbooks were designed to execute predefined actions in response to specific security incidents, such as isolating compromised endpoints, sending real-time alerts to security teams, and initiating forensic data collection for further investigation.
+
+Performance Impact: The comprehensive implementation of these measures resulted in a 25% reduction in incident response time, significantly enhancing the efficiency of threat detection and mitigation processes. This improvement translated into reduced downtime, minimized data breaches, and strengthened overall organizational security.</p>
         </section>
         <section>
             <h2>Active Directory Administration</h2>
-            <p>Automated user provisioning and deprovisioning, configured NTFS permissions, and supported secure remote access via Remote Access Server with NAT/PAT protocols.</p>
+            <p>This project entailed the comprehensive administration and optimization of Active Directory (AD) services, aimed at streamlining user management workflows, enhancing access control mechanisms, and reinforcing organizational security frameworks.
+
+User Account Management:
+
+Automation with PowerShell: I developed extensive PowerShell scripts to automate the entire user lifecycle management process, including account creation, group membership assignments, password policy enforcement, and deprovisioning. This automation not only improved operational efficiency but also minimized the risk of human error and ensured compliance with organizational policies.
+
+Group Policy Management: Configured and enforced Group Policy Objects (GPOs) to standardize security settings across the domain. These GPOs enforced password complexity requirements, account lockout thresholds, software installation restrictions, and desktop environment configurations, ensuring a consistent and secure user experience.
+
+Access Control and Permissions:
+
+NTFS Permissions Management: Administered NTFS file system permissions to control access to critical data. The principle of least privilege was rigorously applied, ensuring users only had access to the resources necessary for their roles. Role-based access controls (RBAC) were implemented to simplify permission management and ensure scalability.
+
+Auditing and Monitoring: Enabled advanced auditing features in AD to monitor critical changes to user accounts, group memberships, and security settings. Comprehensive audit trails were maintained to support forensic investigations, compliance audits, and security incident response.
+
+Secure Remote Access:
+
+Remote Access Services (RAS): Configured Remote Access Services to facilitate secure and efficient connectivity for remote users. Employed Network Address Translation (NAT) and Port Address Translation (PAT) to manage IP address allocation, while ensuring secure data transmission through encrypted communication channels.
+
+Multi-Factor Authentication (MFA): Integrated Multi-Factor Authentication (MFA) mechanisms, combining traditional credentials like passwords with biometric verification and one-time passcodes (OTPs). This layered security approach significantly mitigated the risk of unauthorized access, particularly in remote work environments.
+
+Maintenance and Troubleshooting:
+
+Conducted regular reviews of Active Directory event logs to promptly identify and rectify potential issues. Periodic security audits were performed to ensure adherence to best practices and compliance with organizational policies. Additionally, I provided technical support for complex AD-related issues, ensuring minimal disruption to business operations.
+
+To further enhance system reliability, I implemented proactive monitoring solutions and conducted capacity planning to anticipate future growth and resource requirements.</p>
         </section>
     </main>
     <footer>
