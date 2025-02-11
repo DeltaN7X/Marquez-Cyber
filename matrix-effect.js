@@ -40,7 +40,7 @@
         ctx.font = `${fontSize}px monospace`;
 
         drops.forEach((y, index) => {
-            const text = String.fromCharCode(0x30A0 + Math.random() * 96);  // Random Katakana characters
+            const text = "01"[Math.floor(Math.random() * 2)];  // Use only 1 and 0
             const x = index * fontSize;
 
             ctx.fillText(text, x, y * fontSize);
@@ -52,7 +52,7 @@
             drops[index]++;
         });
 
-        requestAnimationFrame(draw);
+        setTimeout(() => requestAnimationFrame(draw), 100);  // Slow down the scroll speed
     }
 
     console.log("Starting matrix animation");
