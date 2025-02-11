@@ -48,4 +48,5 @@
 
     console.log("Starting matrix animation");
     draw();
-})();
+
+})();  // Ensure this closes the IIFE properly
