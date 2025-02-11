@@ -21,94 +21,204 @@
     <main>
         <section class="project">
     <h2>SOHO Network Design</h2>
-    <p><strong>Objective:</strong> In this project, I meticulously designed and deployed a comprehensive Small Office/Home Office (SOHO) network, with a dual focus on optimizing performance and enforcing robust security protocols. The project commenced with a thorough assessment of network requirements, involving detailed inventorying of all devices, precise bandwidth allocation analysis, and an in-depth evaluation of necessary security measures to safeguard data integrity and confidentiality.</p>
+    <p><strong>Objective:</strong> In this project, I meticulously designed and deployed a comprehensive Small Office/Home Office (SOHO) network, with a dual focus on optimizing performance and enforcing robust security protocols.</p>
+
+    <div class="image-viewer">
+        <img src="images/soho-network-design-1.png" alt="SOHO Network Diagram 1" onclick="openModal(0, 'soho')" />
+        <img src="images/soho-network-design-2.png" alt="SOHO Network Diagram 2" onclick="openModal(1, 'soho')" />
+        <img src="images/soho-network-design-3.png" alt="SOHO Network Diagram 3" onclick="openModal(2, 'soho')" />
+    </div>
 
     <h3>Network Hardware Configuration:</h3>
     <ul>
-        <li><strong>Routers and Switches:</strong> Utilized Ubiquiti routers and Layer 2/3 managed switches from the UniFi product line for scalability and high performance. Configured dynamic routing protocols like OSPF using pfSense to optimize path selection and ensure efficient data flow.</li>
-        <li><strong>VLANs:</strong> Established to segment network traffic based on device type and function, enhancing both performance and security by isolating sensitive data streams.</li>
-        <li><strong>Wireless Access Points (WAPs):</strong> Deployed dual-band UniFi WAPs supporting both 2.4 GHz and 5 GHz frequencies, configured with WPA3 encryption for enhanced wireless security. SSID segmentation was employed to create separate networks for guests, IoT devices, and internal systems, minimizing potential attack vectors.</li>
+        <li><strong>Routers and Switches:</strong> Utilized Ubiquiti routers and Layer 2/3 managed switches from the UniFi product line for scalability and high performance.</li>
+        <li><strong>VLANs:</strong> Established to segment network traffic based on device type and function.</li>
+        <li><strong>Wireless Access Points (WAPs):</strong> Deployed dual-band UniFi WAPs supporting both 2.4 GHz and 5 GHz frequencies.</li>
     </ul>
 
     <h3>Security Implementations:</h3>
     <ul>
-        <li><strong>Next-Generation Firewall (NGFW):</strong> Implemented a pfSense-based NGFW featuring deep packet inspection (DPI), application-layer filtering, and real-time intrusion prevention capabilities. Defined granular Access Control Lists (ACLs) to manage network permissions and restrict unauthorized access.</li>
-        <li><strong>Intrusion Detection/Prevention Systems (IDS/IPS):</strong> Integrated Snort IDS/IPS within the pfSense environment with customized rule sets to detect and mitigate a variety of network threats, including port scanning, SQL injection attempts, and brute-force login attacks.</li>
-        <li><strong>VPN Configuration:</strong> Established secure site-to-site and remote access VPN tunnels using OpenVPN, fortified with AES-256 encryption to ensure data confidentiality.</li>
-        <li><strong>DNS Sinkhole:</strong> Configured pfBlockerNG on pfSense to act as a DNS sinkhole, intercepting and redirecting traffic from known malicious domains to a controlled environment, effectively mitigating phishing attempts and malware infections.</li>
-    </ul>
-
-    <h3>Monitoring and Maintenance:</h3>
-    <ul>
-        <li><strong>Network Monitoring:</strong> Conducted using Wireshark for deep packet-level analysis and Zenmap for network scanning and vulnerability detection. These tools enabled detailed traffic inspection and network mapping to identify potential security risks and optimize network performance.</li>
-        <li><strong>Regular Audits:</strong> Implemented a structured schedule for regular firmware updates and security patches to maintain the integrity, stability, and security of the network infrastructure.</li>
+        <li><strong>Next-Generation Firewall (NGFW):</strong> Implemented a pfSense-based NGFW featuring deep packet inspection (DPI), application-layer filtering, and real-time intrusion prevention capabilities.</li>
+        <li><strong>Intrusion Detection/Prevention Systems (IDS/IPS):</strong> Integrated Snort IDS/IPS within the pfSense environment.</li>
+        <li><strong>VPN Configuration:</strong> Established secure site-to-site and remote access VPN tunnels using OpenVPN, fortified with AES-256 encryption.</li>
+        <li><strong>DNS Sinkhole:</strong> Configured pfBlockerNG on pfSense to act as a DNS sinkhole.</li>
     </ul>
 
     <h3>Results:</h3>
-    <p>Successfully implemented a secure SOHO network capable of mitigating advanced threats while optimizing performance. Regular security audits and firmware updates ensured the integrity and stability of the infrastructure.</p>
+    <p>Successfully implemented a secure SOHO network capable of mitigating advanced threats while optimizing performance.</p>
 </section>
 
 <section class="project">
     <h2>Azure Sentinel SIEM Implementation</h2>
     <p><strong>Objective:</strong> This project focused on deploying Microsoft Azure Sentinel, a scalable, cloud-native Security Information and Event Management (SIEM) system, to enhance the organization’s cybersecurity posture through advanced threat detection and automated incident response.</p>
 
+    <div class="image-viewer">
+        <img src="images/azure-sentinel-siem-1.png" alt="Azure Sentinel Dashboard 1" onclick="openModal(0, 'azure')" />
+        <img src="images/azure-sentinel-siem-2.png" alt="Azure Sentinel Dashboard 2" onclick="openModal(1, 'azure')" />
+    </div>
+
     <h3>Data Collection and Ingestion:</h3>
     <ul>
-        <li><strong>Event Viewer Metadata Extraction:</strong> Developed robust PowerShell automation scripts to extract critical metadata from Windows Event Viewer logs, parsing key fields such as event IDs, timestamps, user activity logs, and error codes.</li>
-        <li><strong>Log Analytics Workspace Configuration:</strong> Established a centralized Log Analytics Workspace in Azure with data connectors configured for seamless integration of logs from multiple sources, including Microsoft 365, Azure Active Directory, and hybrid on-premises servers.</li>
+        <li><strong>Event Viewer Metadata Extraction:</strong> Developed robust PowerShell automation scripts to extract critical metadata from Windows Event Viewer logs.</li>
+        <li><strong>Log Analytics Workspace Configuration:</strong> Established centralized monitoring using Azure Log Analytics.</li>
     </ul>
 
     <h3>Security Monitoring and Analysis:</h3>
     <ul>
-        <li><strong>Custom KQL Queries:</strong> Authored advanced Kusto Query Language (KQL) queries to perform in-depth analysis of log data, identifying security anomalies such as multiple failed login attempts, privilege escalation activities, and unusual network behaviors.</li>
-        <li><strong>Dynamic Workbooks and Dashboards:</strong> Designed dynamic workbooks within Azure Sentinel, incorporating real-time visual dashboards displaying key security metrics like threat detection rates, incident frequencies, response times, and system health indicators.</li>
+        <li><strong>Custom KQL Queries:</strong> Authored advanced queries for in-depth log data analysis.</li>
+        <li><strong>Dynamic Workbooks and Dashboards:</strong> Designed real-time dashboards displaying threat detection rates, incident frequencies, and system health indicators.</li>
     </ul>
 
-    <h3>Incident Response Optimization:</h3>
-    <ul>
-        <li><strong>Playbook Automation:</strong> Developed and implemented automated incident response playbooks using Azure Logic Apps, designed to execute predefined actions in response to specific security incidents, such as isolating compromised endpoints, sending real-time alerts, and initiating forensic data collection.</li>
-    </ul>
-
-    <h3>Performance Impact:</h3>
-    <p>The comprehensive implementation of these measures resulted in a 25% reduction in incident response time, significantly enhancing the efficiency of threat detection and mitigation processes. This improvement translated into reduced downtime, minimized data breaches, and strengthened overall organizational security.</p>
+    <h3>Results:</h3>
+    <p>The implementation resulted in a 25% reduction in incident response time, significantly enhancing threat detection efficiency and minimizing data breaches.</p>
 </section>
 
 <section class="project">
     <h2>Active Directory Administration</h2>
-    <p><strong>Objective:</strong> This project entailed the comprehensive administration and optimization of Active Directory (AD) services to streamline user management workflows, enhance access control mechanisms, and reinforce organizational security frameworks.</p>
+    <p><strong>Objective:</strong> This project entailed the comprehensive administration and optimization of Active Directory (AD) services to streamline user management workflows and enhance security frameworks.</p>
+
+    <div class="image-viewer">
+        <img src="images/active-directory-admin-1.png" alt="Active Directory Configuration 1" onclick="openModal(0, 'ad')" />
+        <img src="images/active-directory-admin-2.png" alt="Active Directory Configuration 2" onclick="openModal(1, 'ad')" />
+        <img src="images/active-directory-admin-3.png" alt="Active Directory Configuration 3" onclick="openModal(2, 'ad')" />
+    </div>
 
     <h3>User Account Management:</h3>
     <ul>
-        <li><strong>Automation with PowerShell:</strong> Developed extensive PowerShell scripts to automate the entire user lifecycle management process, including account creation, group membership assignments, password policy enforcement, and deprovisioning.</li>
+        <li><strong>Automation with PowerShell:</strong> Developed scripts to automate user lifecycle management processes.</li>
     </ul>
 
     <h3>Group Policy Management:</h3>
     <ul>
-        <li><strong>GPO Configuration:</strong> Configured and enforced Group Policy Objects (GPOs) to standardize security settings across the domain, including password complexity requirements, account lockout thresholds, software installation restrictions, and desktop environment configurations.</li>
+        <li><strong>GPO Configuration:</strong> Configured Group Policy Objects (GPOs) to standardize security settings across the organization.</li>
     </ul>
 
     <h3>Access Control and Permissions:</h3>
     <ul>
-        <li><strong>NTFS Permissions Management:</strong> Administered NTFS file system permissions to control access to critical data, rigorously applying the principle of least privilege. Implemented role-based access controls (RBAC) to simplify permission management and ensure scalability.</li>
-    </ul>
-
-    <h3>Auditing and Monitoring:</h3>
-    <ul>
-        <li><strong>Audit Trails:</strong> Enabled advanced auditing features in AD to monitor critical changes to user accounts, group memberships, and security settings. Maintained comprehensive audit trails to support forensic investigations, compliance audits, and security incident responses.</li>
-        <li><strong>Secure Remote Access:</strong> Configured Remote Access Services (RAS) with Network Address Translation (NAT) and Port Address Translation (PAT) to manage IP address allocation and ensure secure data transmission.</li>
-        <li><strong>Multi-Factor Authentication (MFA):</strong> Integrated MFA mechanisms combining traditional credentials with biometric verification and one-time passcodes (OTPs), significantly mitigating the risk of unauthorized access.</li>
-    </ul>
-
-    <h3>Maintenance and Troubleshooting:</h3>
-    <ul>
-        <li>Conducted regular reviews of Active Directory event logs to promptly identify and rectify potential issues. Performed periodic security audits to ensure adherence to best practices and compliance with organizational policies.</li>
-        <li>Provided technical support for complex AD-related issues, ensuring minimal disruption to business operations.</li>
-        <li>Implemented proactive monitoring solutions and conducted capacity planning to anticipate future growth and resource requirements.</li>
+        <li><strong>NTFS Permissions:</strong> Implemented role-based access controls (RBAC) to simplify permission management and enhance scalability.</li>
     </ul>
 
     <h3>Results:</h3>
-    <p>Improved operational efficiency by automating user management tasks, enhancing file server security, and supporting secure remote access for staff, resulting in minimized disruptions and strengthened overall security posture.</p>
+    <p>Improved operational efficiency by automating user management tasks and enhancing file server security, supporting secure remote access for staff.</p>
 </section>
+
+<!-- Modal for Image Viewer -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div class="navigation">
+        <button onclick="navigateImage(-1)">&larr; Prev</button>
+        <button onclick="navigateImage(1)">Next &rarr;</button>
+    </div>
+</div>
+
+<script>
+    const images = {
+        soho: [
+            'images/soho-network-design-1.png',
+            'images/soho-network-design-2.png',
+            'images/soho-network-design-3.png'
+        ],
+        azure: [
+            'images/azure-sentinel-siem-1.png',
+            'images/azure-sentinel-siem-2.png'
+        ],
+        ad: [
+            'images/active-directory-admin-1.png',
+            'images/active-directory-admin-2.png',
+            'images/active-directory-admin-3.png'
+        ]
+    };
+
+    let currentIndex = 0;
+    let currentProject = '';
+
+    function openModal(index, project) {
+        currentIndex = index;
+        currentProject = project;
+        document.getElementById('imageModal').style.display = 'block';
+        document.getElementById('modalImage').src = images[project][index];
+    }
+
+    function navigateImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images[currentProject].length - 1;
+        if (currentIndex >= images[currentProject].length) currentIndex = 0;
+        document.getElementById('modalImage').src = images[currentProject][currentIndex];
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+</script>
+
+<style>
+    .image-viewer img {
+        width: 100%;
+        max-width: 600px;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 10px 0;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .navigation {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .navigation button {
+        background-color: #444;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 10px;
+    }
+
+    .navigation button:hover {
+        background-color: #666;
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
 
 
     </main>
