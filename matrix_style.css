@@ -3,12 +3,10 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: auto;             /* Allow scrolling */
-    background: transparent;    /* Make sure the body doesn't cover the canvas */
+    background: transparent;    /* Ensure body doesn't cover the canvas */
 }
 
-
 .matrix {
-    .matrix {
     border: 5px solid red;  /* Add a red border to visually check the canvas position */
     position: fixed;
     top: 0;
@@ -28,4 +26,3 @@ body, html {
     padding: 20px;
     border-radius: 10px;
 }
-
