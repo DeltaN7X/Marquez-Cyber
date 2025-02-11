@@ -2,28 +2,28 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    min-height: 100vh;       /* Ensure body covers full viewport height */
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    overflow-y: auto;        /* Allow vertical scrolling */
+    overflow: auto;             /* Allow scrolling */
+    background: transparent;    /* Make sure the body doesn't cover the canvas */
 }
 
+
 .matrix {
+    .matrix {
+    border: 5px solid red;  /* Add a red border to visually check the canvas position */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;             /* Send canvas behind the content */
-    pointer-events: none;    /* Ensure it doesn't block clicks/scrolling */
-    background-color: rgba(0, 0, 0, 1);  /* Keep a solid black background */
+    z-index: 0;             /* Bring the canvas slightly forward */
+    pointer-events: none;   /* Ensure canvas doesn't block interactions */
+    background-color: black;  /* Solid black background */
 }
 
 .content {
     position: relative;
-    z-index: 10;             /* Ensure your content stays on top */
-    background: rgba(0, 0, 0, 0.8);  /* Slight transparency for readability */
+    z-index: 1;             /* Ensure content is still on top */
+    background: rgba(0, 0, 0, 0.85);  /* Slight transparency for readability */
     color: white;
     padding: 20px;
     border-radius: 10px;
