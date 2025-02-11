@@ -34,13 +34,13 @@
 
     // Drawing the Matrix effect
     function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';  // Create trailing effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';  // Create trailing effect
         ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
         ctx.fillStyle = '#0F0';  // Bright green color for Matrix effect
         ctx.font = `${fontSize}px monospace`;
 
         drops.forEach((y, index) => {
-            const text = "01"[Math.floor(Math.random() * 2)];  // Use only 1 and 0
+            const text = Math.random() > 0.5 ? '1' : '0';  // Explicitly use 1 and 0
             const x = index * fontSize;
 
             ctx.fillText(text, x, y * fontSize);
@@ -49,10 +49,10 @@
                 drops[index] = 0;  // Reset drop to top randomly
             }
 
-            drops[index] += 0.5;  // Slower falling speed
+            drops[index] += 0.25;  // Significantly slower falling speed
         });
 
-        requestAnimationFrame(draw);  // Keep the animation smooth
+        setTimeout(() => requestAnimationFrame(draw), 100);  // Slow down frame rate
     }
 
     console.log("Starting matrix animation");
