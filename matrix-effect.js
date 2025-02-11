@@ -34,12 +34,29 @@ function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';  // Slight transparency for trailing effect
     ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
     ctx.fillStyle = '#0F0';  // Bright green color
-    ctx.font = '20pt monospace';
+    ctx.font = '20pt monospace';  // Increase font size for visibility
 
     const columns = Math.floor(matrixCanvas.width / 20);
     if (!window.drops) {
-        window.drops = Array(columns).fill(1);
+        window.drops = Array(columns).fill(1);  // Initialize drop positions
     }
+
+    window.drops.forEach((y, index) => {
+        const text = "01"[Math.floor(Math.random() * 2)];  // Display simple 0s and 1s
+        const x = index * 20;
+
+        ctx.fillText(text, x, y * 20);
+
+        if (y * 20 > matrixCanvas.height && Math.random() > 0.975) {
+            window.drops[index] = 0;  // Reset drop to top randomly
+        }
+
+        window.drops[index]++;
+    });
+
+    requestAnimationFrame(draw);
+}
+
 
     window.drops.forEach((y, index) => {
         const text = "01"[Math.floor(Math.random() * 2)];  // Use simple 0 and 1 characters
