@@ -8,31 +8,74 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
+        .project, header, footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+        }
+        a {
+            color: #0F0;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            background-color: #0F0;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0c0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li a {
+            color: #0F0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
         @media (max-width: 600px) {
+            header, .project, footer {
+                padding: 15px;
+                margin: 5px;
+            }
             nav ul {
-                display: flex;
                 flex-direction: column;
                 gap: 10px;
-                align-items: center;
-                padding: 0;
-                margin: 0;
             }
-            nav ul li {
-                list-style: none;
-            }
-            nav ul li a {
-                font-size: 1rem;
-                color: #0F0;
-            }
-            h1, h2 {
+            h1, h2, h3 {
+                font-size: 1.5em;
                 text-align: center;
-                font-size: 1.5rem;
             }
-            p {
-                font-size: 1rem;
-                text-align: center;
+            p, li {
+                font-size: 1em;
             }
         }
     </style>
@@ -40,7 +83,7 @@
 <body>
     <canvas class="matrix"></canvas>
     <header>
-        <h1>Contact</h1>
+        <h1>Contact Me</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -52,12 +95,30 @@
         </nav>
     </header>
     <main>
-        <section class="contact">
-            <h2>Contact Information</h2>
-            <p>Email: <a href="mailto:Savagedeltax@outlook.com">Savagedeltax@outlook.com</a></p>
-            <p>Phone: (209) 960-6721</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/anthony-marquez-06a87126a" target="_blank">View my LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/DeltaN7X" target="_blank">DeltaN7X</a></p>
+        <section class="project">
+            <h2>Get in Touch</h2>
+            <p>Feel free to reach out to me for opportunities, collaborations, or any inquiries related to IT, cybersecurity, and systems administration.</p>
+
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:Savagedeltax@outlook.com">Savagedeltax@outlook.com</a></li>
+                <li><strong>Phone:</strong> (209) 960-6721</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anthony-marquez-06a87126a" target="_blank">View my LinkedIn Profile</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/DeltaN7X" target="_blank">github.com/DeltaN7X</a></li>
+            </ul>
+
+            <h3>Contact Form</h3>
+            <form action="https://formspree.io/f/yourformid" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea><br>
+
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
     <footer>
