@@ -1,11 +1,34 @@
 (function() {
     console.log("Matrix script loaded");
 
+// Check if canvas is created in the DOM
 const matrixCanvas = document.querySelector('.matrix');
 if (matrixCanvas) {
     console.log("Canvas found and ready");
+    const ctx = matrixCanvas.getContext('2d');
+    if (ctx) {
+        console.log("Canvas context obtained");
+
+        function resizeCanvas() {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            console.log("Canvas resized to", matrixCanvas.width, matrixCanvas.height);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Fill the canvas with green for testing
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+        console.log("Canvas filled with green");
+    } else {
+        console.error("Failed to get canvas context");
+    }
 } else {
-    console.error("Canvas not found!");
+    console.error("Canvas element not found in DOM");
+}
+
 }
 
 const ctx = matrixCanvas.getContext('2d');
