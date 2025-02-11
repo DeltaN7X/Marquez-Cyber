@@ -9,18 +9,52 @@
     <style>
         body {
             color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-        .project, header, footer {
+        .certification, header, footer {
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 10px;
         }
-        a {
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li a {
             color: #0F0;
+            text-decoration: none;
+            font-weight: bold;
         }
-        a:hover {
+        nav ul li a:hover {
             text-decoration: underline;
+        }
+        main {
+            padding: 10px;
+        }
+        @media (max-width: 600px) {
+            header, .certification, footer {
+                padding: 15px;
+                margin: 5px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            h1, h2 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -34,21 +68,22 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="certifications.html">Certifications</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank">Resume</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="project">
-            <h2>Professional Certifications</h2>
+        <section class="certification">
+            <h2>Certifications</h2>
             <ul>
-                <li><strong>Associate of ISC2 (SSCP)</strong> - Recognizes expertise in implementing, monitoring, and administering IT infrastructure in accordance with information security policies and procedures.</li>
-                <li><strong>CompTIA CySA+ Certification</strong> - Emphasizes threat detection, analysis, and response.</li>
-                <li><strong>CompTIA Security+ Certification</strong> - Focuses on essential principles of network security and risk management.</li>
-                <li><strong>CompTIA PenTest+ (In Progress)</strong> - Focuses on penetration testing, vulnerability assessment, and management to identify and mitigate security risks.</li>
-                <li><strong>CompTIA Network+ Certification</strong> - Demonstrates knowledge in networking concepts, infrastructure, and operations.</li>
-                <li><strong>LPI Linux Essentials</strong> - Demonstrates foundational knowledge of Linux operating systems, command-line interfaces, and open-source software concepts.</li>
-                <li><strong>ITIL 4 Foundation Certification</strong> - Highlights IT service management best practices and process improvement methodologies.</li>
-                <li><strong>CompTIA A+ Certification</strong> - Validates foundational IT skills and troubleshooting abilities.</li>
+                <li><strong>Associate of ISC2 (SSCP)</strong> - Demonstrates foundational knowledge of cybersecurity principles and practices.</li>
+                <li><strong>CompTIA CySA+</strong> - Focused on cybersecurity analytics, intrusion detection, and response.</li>
+                <li><strong>CompTIA Security+</strong> - Covers essential security skills and best practices.</li>
+                <li><strong>CompTIA Network+</strong> - Validates networking concepts and troubleshooting skills.</li>
+                <li><strong>CompTIA A+</strong> - Fundamental certification for IT support roles.</li>
+                <li><strong>CompTIA Pentest+ (In Progress)</strong> - Focuses on penetration testing and vulnerability assessment.</li>
+                <li><strong>ITIL 4 Foundation</strong> - Knowledge of IT service management and process improvement.</li>
+                <li><strong>LPI Linux Essentials</strong> - Basic knowledge of Linux systems and operations.</li>
             </ul>
         </section>
     </main>
