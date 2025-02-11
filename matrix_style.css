@@ -9,15 +9,16 @@ body, html {
 }
 
 .matrix {
-    position: fixed;
+    position: fixed;        /* Keep the canvas fixed in the background */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1;            /* Ensure it's behind your content */
     background: black;
-    pointer-events: none;  /* Allow clicks and scrolling through the canvas */
+    pointer-events: none;   /* Prevent the canvas from blocking clicks or scroll */
 }
+
 
 canvas {
     display: block;
@@ -25,9 +26,9 @@ canvas {
 
 .content {
     position: relative;
-    z-index: 10;
+    z-index: 10;           /* Ensure it's above the matrix canvas */
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);  /* Semi-transparent background for readability */
     border-radius: 10px;
     max-width: 800px;
     margin: 50px auto;
