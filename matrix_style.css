@@ -15,10 +15,11 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -9999;         /* Ensure canvas is far behind your content */
-    pointer-events: none;   /* Prevent canvas from blocking interactions */
-    background: transparent;
+    z-index: 9999;  /* Bring canvas to the FRONT for testing */
+    pointer-events: none;
+    background-color: black;  /* Ensure it's visible */
 }
+
 
 .content {
     position: relative;
