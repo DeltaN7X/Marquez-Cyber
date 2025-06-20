@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;             /* Allow scrolling */
+    background: transparent;    /* Ensure body doesn't cover the canvas */
+}
+
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Keep canvas behind content */
+    pointer-events: none;
+    background-color: black;
+    /* border: 5px solid red; */  /* Remove or comment out this line */
+}
+
+
+.content {
+    background: none !important;  /* Force no background */
+    border: none !important;      /* Remove any borders */
+    box-shadow: none !important;  /* Remove shadows */
+    color: white;
+}
