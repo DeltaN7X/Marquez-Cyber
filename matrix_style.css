@@ -2,26 +2,40 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: auto;             /* Allow scrolling */
-    background: transparent;    /* Ensure body doesn't cover the canvas */
+    overflow: auto;
+    background: transparent;
 }
 
 .matrix {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;  /* Keep canvas behind content */
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     pointer-events: none;
-    background-color: black;
-    /* border: 5px solid red; */  /* Remove or comment out this line */
+    background-color: #000000;
+    display: block;
 }
 
-
+/* Ensure content appears above matrix */
 .content {
-    background: none !important;  /* Force no background */
-    border: none !important;      /* Remove any borders */
-    box-shadow: none !important;  /* Remove shadows */
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
     color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure all main content has proper z-index */
+header, main, footer, .project {
+    position: relative;
+    z-index: 1;
+}
+
+/* Prevent any interference with scrolling */
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
