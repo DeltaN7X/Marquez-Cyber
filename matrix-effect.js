@@ -1,64 +1,95 @@
-(function() {
-    console.log("Matrix script loaded");
+function initMatrix() {
+        const matrixCanvas = document.querySelector('.matrix');
+        if (!matrixCanvas) {
+            console.error("Canvas element not found in DOM");
+            return;
+        }
 
-    const matrixCanvas = document.querySelector('.matrix');
-    if (!matrixCanvas) {
-        console.error("Canvas element not found in DOM");
-        return;  // Exit if no canvas is found
-    }
+        console.log("Canvas found and ready");
 
-    console.log("Canvas found and ready");
+        const ctx = matrixCanvas.getContext('2d');
+        if (!ctx) {
+            console.error("Failed to get canvas context");
+            return;
+        }
 
-    const ctx = matrixCanvas.getContext('2d');
-    if (!ctx) {
-        console.error("Failed to get canvas context");
-        return;  // Exit if canvas context can't be obtained
-    }
+        console.log("Canvas context obtained");
 
-    console.log("Canvas context obtained");
+        let animationId;
+        let columns, drops;
+        const fontSize = 20;
 
-    // Resize canvas to fit the window
-    function resizeCanvas() {
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-        console.log("Canvas resized to", matrixCanvas.width, matrixCanvas.height);
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();  // Initial resize on page load
-
-    // Initialize columns and drop positions
-    const fontSize = 20;
-    const columns = Math.floor(matrixCanvas.width / fontSize);
-    const drops = Array(columns).fill(1);
-
-    // Drawing the Matrix effect
-    function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';  // Create trailing effect
-        ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-        ctx.fillStyle = '#0F0';  // Bright green color for Matrix effect
-        ctx.font = `${fontSize}px monospace`;
-
-        drops.forEach((y, index) => {
-            // Mix 1s, 0s, and Katakana characters
-            const textPool = ['1', '0', String.fromCharCode(0x30A0 + Math.random() * 96)];
-            const text = textPool[Math.floor(Math.random() * textPool.length)];
-            const x = index * fontSize;
-
-            ctx.fillText(text, x, y * fontSize);
-
-            if (y * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                drops[index] = 0;  // Reset drop to top randomly
+        // Resize canvas and reinitialize variables
+        function resizeCanvas() {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            columns = Math.floor(matrixCanvas.width / fontSize);
+            drops = Array(columns).fill(1);
+            
+            // Reset drops with random starting positions for smoother effect
+            for (let i = 0; i < drops.length; i++) {
+                drops[i] = Math.random() * -100;
             }
+            
+            console.log("Canvas resized to", matrixCanvas.width, matrixCanvas.height);
+        }
 
-            drops[index] += 0.5;  // Moderate falling speed
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            resizeCanvas();
+            draw();
         });
 
-        setTimeout(() => requestAnimationFrame(draw), 75);  // Slightly faster frame rate
+        // Initial setup
+        resizeCanvas();
+
+        // Drawing the Matrix effect
+        function draw() {
+            // Semi-transparent black rectangle for trailing effect
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+            
+            // Set text properties
+            ctx.fillStyle = '#0F0'; // Bright green color
+            ctx.font = `${fontSize}px monospace`;
+            ctx.textBaseline = 'top';
+
+            // Draw each column
+            for (let i = 0; i < drops.length; i++) {
+                // Character pool: mix of 1s, 0s, and Japanese katakana
+                const chars = '10アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+
+                ctx.fillText(text, x, y);
+
+                // Reset drop to top when it goes off screen, with some randomness
+                if (y > matrixCanvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                // Move drop down
+                drops[i]++;
+            }
+
+            // Continue animation
+            animationId = requestAnimationFrame(draw);
+        }
+
+        // Start the animation
+        console.log("Starting matrix animation");
+        draw();
+
+        // Cleanup function for page unload
+        window.addEventListener('beforeunload', function() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+        });
     }
-
-    console.log("Starting matrix animation");
-    draw();  // Start the animation
-
 })();
-
