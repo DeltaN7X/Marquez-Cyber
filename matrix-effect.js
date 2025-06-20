@@ -1,4 +1,14 @@
-function initMatrix() {
+(function() {
+    console.log("Matrix script loaded");
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMatrix);
+    } else {
+        initMatrix();
+    }
+
+    function initMatrix() {
         const matrixCanvas = document.querySelector('.matrix');
         if (!matrixCanvas) {
             console.error("Canvas element not found in DOM");
