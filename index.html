@@ -3,24 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Anthony Marquez</title>
-    <link rel="stylesheet" href="matrix_style.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Anthony Marquez - Portfolio</title>
     <style>
-        body {
-            color: white;
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            overflow: auto;
+            background: transparent;
+            color: white;
             font-family: Arial, sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-        .project, header, footer {
+
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background-color: black;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             margin: 10px;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -28,18 +49,119 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
+            margin: 10px 0 0 0;
         }
+
         nav ul li a {
             color: #0F0;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
+
         nav ul li a:hover {
+            background-color: rgba(0, 255, 0, 0.1);
             text-decoration: underline;
         }
+
+        nav ul li a.active {
+            background-color: rgba(0, 255, 0, 0.2);
+        }
+
         main {
+            flex: 1;
             padding: 10px;
         }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 10px 0;
+        }
+
+        .project h2 {
+            color: #f5a623;
+            border-bottom: 2px solid #444;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            color: #f5f5f5;
+            margin-top: 20px;
+        }
+
+        .project ul {
+            list-style: disc inside;
+            margin-left: 20px;
+        }
+
+        .project ul li {
+            margin-bottom: 10px;
+        }
+
+        .project strong {
+            color: #f5a623;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            text-align: center;
+        }
+
+        a {
+            color: #0F0;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #0F0;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0c0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
         @media (max-width: 600px) {
             header, .project, footer {
                 padding: 15px;
@@ -51,44 +173,238 @@
             }
             h1, h2 {
                 font-size: 1.5em;
+                text-align: center;
             }
-            p {
-                font-size: 0.9em;
+            p, li {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <canvas class="matrix"></canvas>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="Resume.2025.docx.pdf" target="_blank">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="project">
-            <h2>About Me</h2>
-            <p>I have a diverse technical background that includes <strong>systems administration</strong>, <strong>PC support</strong>, and <strong>cybersecurity</strong>. My experience in PC support involves troubleshooting hardware and software issues, providing technical assistance to end-users, and ensuring overall system reliability.</p>
+    
+    <div class="container">
+        <header>
+            <h1>Anthony Marquez - Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
+                    <li><a href="#" data-section="projects" class="nav-link">Projects</a></li>
+                    <li><a href="#" data-section="certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
+                    <li><a href="Resume.2025.docx.pdf" target="_blank">Resume</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <p>I also have hands-on knowledge of <strong>networking concepts</strong>, <strong>IT infrastructure</strong>, and <strong>security protocols</strong>, supported by industry-recognized certifications in IT and cybersecurity.</p>
+        <main>
+            <!-- Home Section -->
+            <div id="home" class="content-section active">
+                <section class="project">
+                    <h2>About Me</h2>
+                    <p>I have a diverse technical background that includes <strong>systems administration</strong>, <strong>PC support</strong>, and <strong>cybersecurity</strong>. My experience in PC support involves troubleshooting hardware and software issues, providing technical assistance to end-users, and ensuring overall system reliability.</p>
 
-            <p>In addition, I’ve managed complex operational systems in my role as a <strong>Water Reclamation Operator III</strong>, where I developed strong problem-solving skills and technical troubleshooting abilities in a highly regulated environment.</p>
+                    <p>I also have hands-on knowledge of <strong>networking concepts</strong>, <strong>IT infrastructure</strong>, and <strong>security protocols</strong>, supported by industry-recognized certifications in IT and cybersecurity.</p>
 
-            <p>My academic work in <strong>Cybersecurity and Information Assurance</strong> at Western Governors University strengthens my understanding of <strong>cybersecurity best practices</strong>, <strong>risk management</strong>, and <strong>system protection</strong>. I also hold certifications in <strong>IT service management</strong> and <strong>cybersecurity operations</strong>, which highlight my expertise in process improvement and securing IT environments.</p>
+                    <p>In addition, I've managed complex operational systems in my role as a <strong>Water Reclamation Operator III</strong>, where I developed strong problem-solving skills and technical troubleshooting abilities in a highly regulated environment.</p>
 
-            <p>Altogether, my technical expertise allows me to effectively support, secure, and optimize IT systems across various environments.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Anthony Marquez</p>
-    </footer>
-    <script src="matrix-effect.js"></script>
+                    <p>My academic work in <strong>Cybersecurity and Information Assurance</strong> at Western Governors University strengthens my understanding of <strong>cybersecurity best practices</strong>, <strong>risk management</strong>, and <strong>system protection</strong>. I also hold certifications in <strong>IT service management</strong> and <strong>cybersecurity operations</strong>, which highlight my expertise in process improvement and securing IT environments.</p>
+
+                    <p>Altogether, my technical expertise allows me to effectively support, secure, and optimize IT systems across various environments.</p>
+                </section>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects" class="content-section">
+                <section class="project">
+                    <h2>SOHO Network Design</h2>
+                    <p><strong>Objective:</strong> Designed and deployed a secure, high-performance Small Office/Home Office (SOHO) network with optimized performance and robust security protocols.</p>
+                    <h3>Network Hardware Configuration:</h3>
+                    <ul>
+                        <li><strong>Routers and Switches:</strong> Utilized Ubiquiti routers and Layer 2/3 managed switches from the UniFi product line for scalability and high performance.</li>
+                        <li><strong>VLANs:</strong> Established VLANs to segment network traffic based on device type and function.</li>
+                        <li><strong>Wireless Access Points (WAPs):</strong> Deployed dual-band UniFi WAPs supporting both 2.4 GHz and 5 GHz frequencies for optimal wireless coverage.</li>
+                    </ul>
+                    <h3>Security Implementations:</h3>
+                    <ul>
+                        <li><strong>Next-Generation Firewall (NGFW):</strong> Implemented a pfSense-based NGFW featuring deep packet inspection (DPI), application-layer filtering, and real-time intrusion prevention capabilities.</li>
+                        <li><strong>Intrusion Detection/Prevention Systems (IDS/IPS):</strong> Integrated Snort IDS/IPS within the pfSense environment to monitor and block malicious activities.</li>
+                        <li><strong>VPN Configuration:</strong> Established secure site-to-site and remote access VPN tunnels using OpenVPN, fortified with AES-256 encryption.</li>
+                        <li><strong>DNS Sinkhole:</strong> Configured pfBlockerNG on pfSense to act as a DNS sinkhole, preventing access to known malicious domains.</li>
+                    </ul>
+                    <h3>Results:</h3>
+                    <p>Successfully implemented a secure SOHO network capable of mitigating advanced threats while optimizing performance for business operations.</p>
+                </section>
+
+                <section class="project">
+                    <h2>Azure Sentinel SIEM Implementation</h2>
+                    <p><strong>Objective:</strong> Deployed Microsoft Azure Sentinel to enhance the organization's cybersecurity posture through advanced threat detection and automated incident response.</p>
+                    <h3>Data Collection and Ingestion:</h3>
+                    <ul>
+                        <li><strong>Event Viewer Metadata Extraction:</strong> Developed robust PowerShell automation scripts to extract critical metadata from Windows Event Viewer logs.</li>
+                        <li><strong>Log Analytics Workspace Configuration:</strong> Established centralized monitoring using Azure Log Analytics, integrating logs from multiple sources.</li>
+                    </ul>
+                    <h3>Security Monitoring and Analysis:</h3>
+                    <ul>
+                        <li><strong>Custom KQL Queries:</strong> Authored advanced Kusto Query Language (KQL) queries for in-depth log data analysis, focusing on anomaly detection and threat intelligence.</li>
+                        <li><strong>Dynamic Workbooks and Dashboards:</strong> Designed real-time dashboards displaying threat detection rates, incident frequencies, and system health indicators for continuous monitoring.</li>
+                    </ul>
+                    <h3>Results:</h3>
+                    <p>The implementation resulted in a 25% reduction in incident response time, significantly enhancing threat detection efficiency and minimizing potential data breaches.</p>
+                </section>
+
+                <section class="project">
+                    <h2>Active Directory Administration</h2>
+                    <p><strong>Objective:</strong> Streamlined Active Directory services to improve user management workflows and enhance organizational security frameworks.</p>
+                    <h3>User Account Management:</h3>
+                    <ul>
+                        <li><strong>Automation with PowerShell:</strong> Developed scripts to automate user account provisioning, password resets, and lifecycle management processes.</li>
+                    </ul>
+                    <h3>Group Policy Management:</h3>
+                    <ul>
+                        <li><strong>GPO Configuration:</strong> Configured Group Policy Objects (GPOs) to enforce security policies, manage software installations, and standardize desktop environments across the organization.</li>
+                    </ul>
+                    <h3>Access Control and Permissions:</h3>
+                    <ul>
+                        <li><strong>NTFS Permissions:</strong> Implemented role-based access controls (RBAC) to simplify permission management and enhance scalability, ensuring that sensitive data is accessible only to authorized personnel.</li>
+                    </ul>
+                    <h3>Results:</h3>
+                    <p>Improved operational efficiency by automating user management tasks and enhancing file server security, supporting secure remote access for staff across multiple locations.</p>
+                </section>
+            </div>
+
+            <!-- Certifications Section -->
+            <div id="certifications" class="content-section">
+                <section class="project">
+                    <h2>Professional Certifications</h2>
+                    <ul>
+                        <li><strong>Associate of ISC2 (SSCP)</strong> - Recognizes expertise in implementing, monitoring, and administering IT infrastructure in accordance with information security policies and procedures.</li>
+                        <li><strong>CompTIA CySA+ Certification</strong> - Emphasizes threat detection, analysis, and response.</li>
+                        <li><strong>CompTIA Security+ Certification</strong> - Focuses on essential principles of network security and risk management.</li>
+                        <li><strong>CompTIA PenTest+ (In Progress)</strong> - Focuses on penetration testing, vulnerability assessment, and management to identify and mitigate security risks.</li>
+                        <li><strong>CompTIA Network+ Certification</strong> - Demonstrates knowledge in networking concepts, infrastructure, and operations.</li>
+                        <li><strong>LPI Linux Essentials</strong> - Demonstrates foundational knowledge of Linux operating systems, command-line interfaces, and open-source software concepts.</li>
+                        <li><strong>ITIL 4 Foundation Certification</strong> - Highlights IT service management best practices and process improvement methodologies.</li>
+                        <li><strong>CompTIA A+ Certification</strong> - Validates foundational IT skills and troubleshooting abilities.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact" class="content-section">
+                <section class="project">
+                    <h2>Get in Touch</h2>
+                    <p>Feel free to reach out to me for opportunities, collaborations, or any inquiries related to IT, cybersecurity, and systems administration.</p>
+
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:Savagedeltax@outlook.com">Savagedeltax@outlook.com</a></li>
+                        <li><strong>Phone:</strong> (209) 960-6721</li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anthony-marquez-06a87126a" target="_blank">View my LinkedIn Profile</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/DeltaN7X" target="_blank">github.com/DeltaN7X</a></li>
+                    </ul>
+
+                    <h3>Contact Form</h3>
+                    <form action="https://formspree.io/f/yourformid" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea><br>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anthony Marquez</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix Effect
+        (function() {
+            console.log("Matrix script loaded");
+
+            const matrixCanvas = document.querySelector('.matrix');
+            if (!matrixCanvas) {
+                console.error("Canvas element not found in DOM");
+                return;
+            }
+
+            const ctx = matrixCanvas.getContext('2d');
+            if (!ctx) {
+                console.error("Failed to get canvas context");
+                return;
+            }
+
+            function resizeCanvas() {
+                matrixCanvas.width = window.innerWidth;
+                matrixCanvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const fontSize = 20;
+            const columns = Math.floor(matrixCanvas.width / fontSize);
+            const drops = Array(columns).fill(1);
+
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                ctx.fillStyle = '#0F0';
+                ctx.font = `${fontSize}px monospace`;
+
+                drops.forEach((y, index) => {
+                    const textPool = ['1', '0', String.fromCharCode(0x30A0 + Math.random() * 96)];
+                    const text = textPool[Math.floor(Math.random() * textPool.length)];
+                    const x = index * fontSize;
+
+                    ctx.fillText(text, x, y * fontSize);
+
+                    if (y * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                        drops[index] = 0;
+                    }
+
+                    drops[index] += 0.5;
+                });
+
+                setTimeout(() => requestAnimationFrame(draw), 75);
+            }
+
+            draw();
+        })();
+
+        // Navigation Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // Remove active class from all nav links and sections
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked nav link and target section
+                    this.classList.add('active');
+                    document.getElementById(targetSection).classList.add('active');
+                    
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
