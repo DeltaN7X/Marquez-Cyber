@@ -9,10 +9,10 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: auto;
             background: transparent;
             color: white;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         .matrix {
@@ -30,8 +30,6 @@
             position: relative;
             z-index: 1;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         header {
@@ -40,6 +38,9 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             margin: 10px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
         }
 
         nav ul {
@@ -67,27 +68,13 @@
             text-decoration: underline;
         }
 
-        nav ul li a.active {
-            background-color: rgba(0, 255, 0, 0.2);
-        }
-
         main {
-            flex: 1;
             padding: 10px;
         }
 
-        .content-section {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 120px;
         }
 
         .project {
@@ -123,6 +110,22 @@
             color: #f5a623;
         }
 
+        .section-title {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            color: #0F0;
+            margin: 0;
+            font-size: 2em;
+            text-shadow: 0 0 10px #0F0;
+        }
+
         footer {
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
@@ -147,6 +150,7 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -162,8 +166,39 @@
             box-sizing: border-box;
         }
 
+        /* Smooth scroll animation for sections */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Intersection observer animation */
+        .section.animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.animate.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 600px) {
-            header, .project, footer {
+            header, .project, footer, .section-title {
                 padding: 15px;
                 margin: 5px;
             }
@@ -178,6 +213,9 @@
             p, li {
                 font-size: 1em;
             }
+            .section {
+                scroll-margin-top: 80px;
+            }
         }
     </style>
 </head>
@@ -189,10 +227,10 @@
             <h1>Anthony Marquez - Portfolio</h1>
             <nav>
                 <ul>
-                    <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
-                    <li><a href="#" data-section="projects" class="nav-link">Projects</a></li>
-                    <li><a href="#" data-section="certifications" class="nav-link">Certifications</a></li>
-                    <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="Resume.2025.docx.pdf" target="_blank">Resume</a></li>
                 </ul>
             </nav>
@@ -200,9 +238,11 @@
 
         <main>
             <!-- Home Section -->
-            <div id="home" class="content-section active">
-                <section class="project">
-                    <h2>About Me</h2>
+            <section id="home" class="section animate">
+                <div class="section-title">
+                    <h1>About Me</h1>
+                </div>
+                <div class="project">
                     <p>I have a diverse technical background that includes <strong>systems administration</strong>, <strong>PC support</strong>, and <strong>cybersecurity</strong>. My experience in PC support involves troubleshooting hardware and software issues, providing technical assistance to end-users, and ensuring overall system reliability.</p>
 
                     <p>I also have hands-on knowledge of <strong>networking concepts</strong>, <strong>IT infrastructure</strong>, and <strong>security protocols</strong>, supported by industry-recognized certifications in IT and cybersecurity.</p>
@@ -212,12 +252,16 @@
                     <p>My academic work in <strong>Cybersecurity and Information Assurance</strong> at Western Governors University strengthens my understanding of <strong>cybersecurity best practices</strong>, <strong>risk management</strong>, and <strong>system protection</strong>. I also hold certifications in <strong>IT service management</strong> and <strong>cybersecurity operations</strong>, which highlight my expertise in process improvement and securing IT environments.</p>
 
                     <p>Altogether, my technical expertise allows me to effectively support, secure, and optimize IT systems across various environments.</p>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <!-- Projects Section -->
-            <div id="projects" class="content-section">
-                <section class="project">
+            <section id="projects" class="section animate">
+                <div class="section-title">
+                    <h1>Projects</h1>
+                </div>
+                
+                <div class="project">
                     <h2>SOHO Network Design</h2>
                     <p><strong>Objective:</strong> Designed and deployed a secure, high-performance Small Office/Home Office (SOHO) network with optimized performance and robust security protocols.</p>
                     <h3>Network Hardware Configuration:</h3>
@@ -235,9 +279,9 @@
                     </ul>
                     <h3>Results:</h3>
                     <p>Successfully implemented a secure SOHO network capable of mitigating advanced threats while optimizing performance for business operations.</p>
-                </section>
+                </div>
 
-                <section class="project">
+                <div class="project">
                     <h2>Azure Sentinel SIEM Implementation</h2>
                     <p><strong>Objective:</strong> Deployed Microsoft Azure Sentinel to enhance the organization's cybersecurity posture through advanced threat detection and automated incident response.</p>
                     <h3>Data Collection and Ingestion:</h3>
@@ -252,9 +296,9 @@
                     </ul>
                     <h3>Results:</h3>
                     <p>The implementation resulted in a 25% reduction in incident response time, significantly enhancing threat detection efficiency and minimizing potential data breaches.</p>
-                </section>
+                </div>
 
-                <section class="project">
+                <div class="project">
                     <h2>Active Directory Administration</h2>
                     <p><strong>Objective:</strong> Streamlined Active Directory services to improve user management workflows and enhance organizational security frameworks.</p>
                     <h3>User Account Management:</h3>
@@ -271,12 +315,16 @@
                     </ul>
                     <h3>Results:</h3>
                     <p>Improved operational efficiency by automating user management tasks and enhancing file server security, supporting secure remote access for staff across multiple locations.</p>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <!-- Certifications Section -->
-            <div id="certifications" class="content-section">
-                <section class="project">
+            <section id="certifications" class="section animate">
+                <div class="section-title">
+                    <h1>Certifications</h1>
+                </div>
+                
+                <div class="project">
                     <h2>Professional Certifications</h2>
                     <ul>
                         <li><strong>Associate of ISC2 (SSCP)</strong> - Recognizes expertise in implementing, monitoring, and administering IT infrastructure in accordance with information security policies and procedures.</li>
@@ -288,12 +336,16 @@
                         <li><strong>ITIL 4 Foundation Certification</strong> - Highlights IT service management best practices and process improvement methodologies.</li>
                         <li><strong>CompTIA A+ Certification</strong> - Validates foundational IT skills and troubleshooting abilities.</li>
                     </ul>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <!-- Contact Section -->
-            <div id="contact" class="content-section">
-                <section class="project">
+            <section id="contact" class="section animate">
+                <div class="section-title">
+                    <h1>Contact</h1>
+                </div>
+                
+                <div class="project">
                     <h2>Get in Touch</h2>
                     <p>Feel free to reach out to me for opportunities, collaborations, or any inquiries related to IT, cybersecurity, and systems administration.</p>
 
@@ -317,8 +369,8 @@
 
                         <button type="submit">Send Message</button>
                     </form>
-                </section>
-            </div>
+                </div>
+            </section>
         </main>
 
         <footer>
@@ -381,30 +433,45 @@
             draw();
         })();
 
-        // Navigation Logic
+        // Smooth scroll for navigation links
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.content-section');
-
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
                     
-                    const targetSection = this.getAttribute('data-section');
-                    
-                    // Remove active class from all nav links and sections
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked nav link and target section
-                    this.classList.add('active');
-                    document.getElementById(targetSection).classList.add('active');
-                    
-                    // Scroll to top smoothly
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            const animatedSections = document.querySelectorAll('.section.animate');
+            animatedSections.forEach(section => {
+                observer.observe(section);
             });
         });
     </script>
 </body>
+</html>
 </html>
